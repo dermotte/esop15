@@ -6,16 +6,10 @@ package at.aau.esop15.course02;
  */
 public class TestOperators {
     public static void main(String[] args) {
-
-        int i, j = 5;
-        short s = 4;
-        byte b;
-
-        i = j; 		// ok: derselbe Typ
-        i = 300; 	// ok (Zahlkonstanten sind int)
-        b = 122;	// falsch: 300 passt nicht in byte
-        i = s; 		// ok
-        // s = i; 		// falsch
+        int x = 1;
+        System.out.println("" + x++);
+        System.out.println("" + x);
+        System.out.println("" + ++x);
 
     }
 }
