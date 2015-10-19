@@ -26,6 +26,8 @@ public class SwitchExample {
             case 11:
                 days = 30;
                 break;
+            default:
+                days =-1;
         }
         System.out.println(days);
     }
