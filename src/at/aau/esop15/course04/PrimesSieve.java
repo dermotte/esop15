@@ -5,7 +5,7 @@ package at.aau.esop15.course04;
  */
 public class PrimesSieve {
         public static void main(String[] args) {
-            int maxPrime = 200000;
+            int maxPrime = 2000000;
             boolean[] sieve = new boolean[maxPrime];
             // init array
             for (int i = 0; i < sieve.length; i++) {

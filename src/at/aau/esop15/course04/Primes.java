@@ -6,12 +6,12 @@ package at.aau.esop15.course04;
  */
 public class Primes {
     public static void main(String[] args) {
-        int maxPrime = 1000;
+        int maxPrime = 1000000;
         // iterate candidates
         for (int candidate = 3; candidate <= maxPrime; candidate++) {
             boolean isPrime = true;
             // iterate potential dividers
-            for (int divider = 2; divider < candidate; divider++) {
+            for (int divider = 2; divider < Math.sqrt(candidate); divider++) {
                 // check for division without rest
                 if (candidate % divider == 0) {
                     isPrime = false;

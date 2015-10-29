@@ -7,13 +7,15 @@ public class ArrayExample {
     public static void main(String[] args) {
         int[] myArray = new int[5];
         // initialisiere Werte in Array: {1, 2, 3, 4, 5}
-        for (int i = 0; i < myArray.length; i++) {
+        int i=0;
+        while (i<myArray.length) {
             myArray[i] = i + 1;
+            i++;
         }
         // Compute mean:
         float sum = 0;
-        for (int i = 0; i < myArray.length; i++) {
-            sum += myArray[i]; // sum up all elements
+        for (int element : myArray) {
+            sum += element; // sum up all elements
         }
         System.out.println(sum / myArray.length);
     }

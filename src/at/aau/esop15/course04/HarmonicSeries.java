@@ -5,10 +5,10 @@ package at.aau.esop15.course04;
  */
 public class HarmonicSeries {
     public static void main (String[] arg) {
-        float sum = 0;
-        int n = 10;
-        for (int i = n; i > 0; i--)
-            sum += 1.0f / i;
+        double sum = 0;
+        int n = 10; // maximum
+        for (int i = n; i > 0; i--) // n bis 0
+            sum += 1.0 / (double) i;
         System.out.println("sum = " + sum);
     }
 }
