@@ -15,7 +15,8 @@ public class Queue {
     }
 
     void put(int x) {
-        if (length == data.length)  System.out.println("-- overflow");
+        if (length == data.length)
+            System.out.println("-- overflow");
         else {
             data[tail] = x;
             length++;
@@ -36,9 +37,16 @@ public class Queue {
 
     public static void main(String[] args) {
         Queue q = new Queue(10);
-        q.put(3);
-        q.put(6);
-        int x = q.get(); // x == 3
-        int y = q.get(); // y == 6
+        int x = 0; // x == 3
+        int y = 0; // y == 6
+        for (int i = 0; i < 20; i++) {
+            q.put(3);
+            q.put(6);
+            x = q.get();
+            y = q.get();
+            System.out.println("q.tail = " + q.tail);
+        }
+        System.out.println("x = " + x);
+        System.out.println("y = " + y);
     }
 }

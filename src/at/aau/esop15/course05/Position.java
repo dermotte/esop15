@@ -20,9 +20,19 @@ public class Position {
         y++;
     }
 
+    public double distance(Position p) {
+        double r = 0;
+        r = (p.x -x)*(p.x -x) + (p.y-y)*(p.y-y);
+        return Math.sqrt(r);
+    }
+
     public static void main(String[] args) {
         Position p = new Position(10, 10);
         p.moveLeft();
         p.moveLeft();
+
+        Position p2 = new Position(10, 10);
+        if (p2.distance(p) < 1) System.out.println("nahe");
+        else System.out.println("fern");
     }
 }

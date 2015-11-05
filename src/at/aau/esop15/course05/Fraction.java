@@ -28,10 +28,10 @@ public class Fraction {
     }
 
     public static void main(String[] args) {
-        Fraction f1 = new Fraction();
+        Fraction f1 = new Fraction(); // 2/3
         f1.n = 2;
         f1.d = 3;
-        Fraction f2 = new Fraction();
+        Fraction f2 = new Fraction(); // 3/2
         f2.n = 3;
         f2.d = 2;
 
