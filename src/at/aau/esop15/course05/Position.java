@@ -19,4 +19,10 @@ public class Position {
     public void moveRight() {
         y++;
     }
+
+    public static void main(String[] args) {
+        Position p = new Position(10, 10);
+        p.moveLeft();
+        p.moveLeft();
+    }
 }
