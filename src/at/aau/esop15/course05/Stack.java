@@ -5,7 +5,7 @@ package at.aau.esop15.course05;
  */
 public class Stack {
     int[] data;
-    int top;
+    public int top;
 
     Stack(int size) {
         data = new int[size];
