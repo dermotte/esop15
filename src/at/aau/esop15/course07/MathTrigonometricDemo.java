@@ -1,7 +1,7 @@
 package at.aau.esop15.course07;
 
 /**
- * Created by mlux on 16.11.2015.
+ * @author Dr. Mathias Lux, 16.11.2015.
  */
 public class MathTrigonometricDemo {
     public static void main(String[] args) {
