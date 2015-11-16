@@ -1,6 +1,7 @@
 package at.aau.esop15.course06;
+
 /**
- * Created by mlux_2 on 20.11.2014.
+ * @author Dr. Mathias Lux, 12.11.2015.
  */
 public class MainGame {
     public static void main(String[] args) {
