@@ -6,8 +6,8 @@ package at.aau.esop15.course07;
 public class MathTrigonometricDemo {
     public static void main(String[] args) {
         // ASCII sine wave
-        for (double d = 0d; d < 10; d+=0.15) {
-            double x = 60*(Math.sin(d) + 1);
+        for (double d = 0d; d < 4*Math.PI; d+=0.15) {
+            double x = 40*(Math.sin(d) + 1);
             x = Math.round(x);
             for (int i = 0; i< x; i++) System.out.print(' ');
             System.out.println('*');

@@ -12,7 +12,7 @@ public class StringChangeFileSuffix {
         // find the position of the last dot
         int dotIndex = myFileName.lastIndexOf('.');
         // take substring and add new suffix
-        String newFileName = myFileName.substring(0, dotIndex) + ".doc";
+        String newFileName = myFileName.substring(0, dotIndex).concat(".doc");
         // print result:
         System.out.println("newFileName = " + newFileName);
     }
