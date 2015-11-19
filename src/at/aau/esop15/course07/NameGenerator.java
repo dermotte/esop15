@@ -6,11 +6,18 @@ package at.aau.esop15.course07;
 public class NameGenerator {
     private static char[] consonants = "bcdfghjklmnpqrstvwxz".toCharArray();
     private static char[] vowels = "aeiouy".toCharArray();
-    private static String[] titles = "Lord King Diva Queen Doc Incredible Tiny Unworthy Extreme Holy Stinking Dirty Smelly".split(" ");
+    private static String[] titles = "Lord King Diva Queen Doc Incredible Tiny Unworthy Extreme Holy Stinking Dirty Smelly Tall Improbable Awesome Invisible".split(" ");
 
     public static void main(String[] args) {
+        // feel free to experiment with patterns.
         System.out.println(getRandomName("t Cvc Cvcc"));
         System.out.println(getRandomName("Cvcvvc Cvcc, known as .the t"));
+        System.out.println(getRandomName("Vccv Cvvcvcc"));
+        System.out.println(getRandomName("Cc'Vc Ccvcv"));
+        System.out.println(getRandomName("t C'Cv Vccvcv"));
+        System.out.println(getRandomName("Vcvcv Vcvvcvcvv"));
+        System.out.println(getRandomName("Vvccvc"));
+        System.out.println(getRandomName("Cvccvc"));
     }
 
     private static String getRandomName(String pattern) {
