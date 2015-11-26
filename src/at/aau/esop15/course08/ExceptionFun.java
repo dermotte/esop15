@@ -12,18 +12,20 @@ public class ExceptionFun {
         System.out.println("foo");
     }
 
-    public void bar() {
-        throw new UnsupportedOperationException("not implemented!");
+    public void bar() throws NotImplementedException {
+        throw new NotImplementedException();
     }
 
     public static void main(String[] args) {
-        ExceptionFun fun =null;
-        fun= new ExceptionFun();
+        ExceptionFun fun = null;
+        fun = new ExceptionFun();
+        fun.foo();
         try {
-            fun.foo();
-            fun.bar();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+            for (int i = 0; i < 10; i++) {
+                fun.bar();
+            }
+        } catch (NotImplementedException e) {
+            e.printStackTrace();
         }
     }
 }

@@ -32,7 +32,7 @@ public class InputStreamFun {
         }
 
         // read to part of the buffer:
-        do{
+        do {
             read = bis.read(buf, 1, 13);
             System.out.println("bytes read = " + read);
         } while (read > 0);
