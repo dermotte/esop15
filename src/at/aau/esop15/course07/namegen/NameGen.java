@@ -13,7 +13,7 @@ public class NameGen {
                 new Vowel()};
         Pattern p = new Pattern(pattern);
 
-        for (;;) {
+        for (int i=0;i<10;i++) {
             System.out.println(p.getName());
         }
     }
