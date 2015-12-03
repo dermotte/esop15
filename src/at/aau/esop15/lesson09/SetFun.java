@@ -21,7 +21,7 @@ public class SetFun {
 
         setTwo.add("strawberries");
         setTwo.add("pears");
-        setTwo.add("mango");
+        setTwo.add("mangos");
 
         // union of sets:
         Set union = (Set) setOne.clone(); // clone the set, so that setOne can be re-used later on ...

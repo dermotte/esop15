@@ -12,7 +12,7 @@ public class SetFunGenerics {
     public static void main(String[] args) {
         Set<String> setOne, setTwo;
 
-        setOne = new TreeSet<String>();
+        setOne = new TreeSet<>();
         setTwo = new HashSet<String>();
 
         setOne.add("apples");
@@ -24,24 +24,26 @@ public class SetFunGenerics {
         setTwo.add("mango");
 
         // union of sets:
-        Set<String> union = (Set<String>) ((TreeSet) setOne).clone(); // clone the set, so that setOne can be re-used later on ...
+        Set<String> union = new TreeSet<>();
+        union.addAll(setOne);
         union.addAll(setTwo);
         // print results:
         System.out.print("union = { ");
-        for (String anUnion : (Iterable<String>) union) {
-            System.out.print(anUnion + " ");
+        for (String element : union) {
+            System.out.print(element + " ");
         }
         System.out.print("}\n");
 
         // intersection
-        Set<String> intersection = (Set<String>) ((TreeSet) setOne).clone(); // clone the set, so that setOne can be re-used later on ...
+        Set<String> intersection = new TreeSet<>(); // clone the set, so that setOne can be re-used later on ...
+        intersection.addAll(setOne);
         setOne.removeAll(setTwo);
         intersection.removeAll(setOne);
         // print results:
         System.out.print("intersection = { ");
-        for (String elem : intersection) {
-            System.out.print(elem + " ");
-        }
+        Iterator<String> it = intersection.iterator();
+        while (it.hasNext())
+            System.out.println(it.next() + " ");
         System.out.print("}\n");
     }
 }

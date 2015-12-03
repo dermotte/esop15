@@ -19,11 +19,10 @@ public class ListFun {
         for (int i = 0; i < 10 ; i++) {
             myNames.add(names[(int) Math.floor(Math.random() * names.length)]);
         }
-
+        myNames.add("justin");
         // getting the List printed
         System.out.println("** as is");
         printElements(myNames.iterator());
-
 
         // now sort the list:
         Collections.sort(myNames);
@@ -58,7 +57,7 @@ public class ListFun {
     private static class MyComparator implements java.util.Comparator {
         @Override
         public int compare(Object o1, Object o2) {
-            return -((String) o1).compareTo((String) o2);
+            return ((String) o1).toUpperCase().compareTo(((String) o2).toUpperCase());
         }
     }
 }
