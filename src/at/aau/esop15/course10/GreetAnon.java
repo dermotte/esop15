@@ -11,13 +11,22 @@ public class GreetAnon {
     }
 
     public static void main(String[] args) {
-        HelloThere h = new HelloThere() {
+        HelloThere en = new HelloThere() {
             @Override
             public void greet(String name) {
                 System.out.printf("Hello %s!\n", name);
             }
         };
+        HelloThere de = new HelloThere() {
+            public void greet(String foo) {
+                System.out.println("Servus " + foo + "!");
+            }
+        };
 
-        h.greet("Mathias");
+
+        en.greet("Mathias");
+        en.greet("World");
+
+        de.greet("Mathias");
     }
 }

@@ -23,22 +23,12 @@ public class InlineComparator {
         for (int i = 0; i < 10 ; i++) {
             myNames.add(names[(int) Math.floor(Math.random() * names.length)]);
         }
+        // my list is ready ...
 
-        // todo: change to lambda
-        Collections.sort(myNames, new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return -o1.compareTo(o2);
-            }
-        });
+        // sorting
+        Collections.sort(myNames, (o1, o2) -> -o1.compareTo(o2));
 
-        // todo: change to lamda
-        myNames.forEach(new Consumer<String>() {
-            @Override
-            public void accept(String s) {
-                System.out.println(s);
-            }
-        });
+        myNames.forEach(System.out::println);
     }
 
 }

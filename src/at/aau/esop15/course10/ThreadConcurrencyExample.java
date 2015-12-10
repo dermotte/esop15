@@ -8,7 +8,7 @@ import java.util.LinkedList;
  */
 public class ThreadConcurrencyExample implements Runnable {
     boolean up;           // increment or decrement
-    int count = 1000;   // each runs # times
+    int count = 100000000;   // each runs # times
     static int sum;       // shared variable
 
     public ThreadConcurrencyExample(boolean up) {
@@ -24,14 +24,15 @@ public class ThreadConcurrencyExample implements Runnable {
     }
 
     public static void main(String[] args) {
-        boolean upMe = true;
         LinkedList<Thread> t = new LinkedList<Thread>();
-        for (int i = 0; i < 10; i++) { // creating 10 threads
+        boolean upMe = true;
+        for (int i = 0; i < 10000; i++) { // creating 10 threads
             Thread thread = new Thread(new ThreadConcurrencyExample(upMe));
             upMe = !upMe;
             thread.start();
             t.add(thread);
         }
+
         // making sure to wait for them to end:
         for (Iterator<Thread> iterator = t.iterator(); iterator.hasNext(); ) {
             try {
@@ -40,6 +41,7 @@ public class ThreadConcurrencyExample implements Runnable {
                 e.printStackTrace();
             }
         }
+
         System.out.println("sum = " + sum);
     }
 }

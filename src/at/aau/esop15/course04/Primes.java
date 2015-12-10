@@ -6,7 +6,7 @@ package at.aau.esop15.course04;
  */
 public class Primes {
     public static void main(String[] args) {
-        int maxPrime = 1000000;
+        int maxPrime = 1000000000;
         // iterate candidates
         for (int candidate = 3; candidate <= maxPrime; candidate++) {
             boolean isPrime = true;

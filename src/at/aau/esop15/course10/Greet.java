@@ -21,5 +21,6 @@ public class Greet {
         HelloThere h = new GreetEnglish();
 
         h.greet("Mathias");
+        h.greet("World");
     }
 }

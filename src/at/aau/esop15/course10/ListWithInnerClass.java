@@ -1,13 +1,13 @@
-package at.aau.esop15.course06;
+package at.aau.esop15.course10;
 
 /**
  * @author Dr. Mathias Lux, 12.11.2015.
  */
-public class List {
-    private Node head, tail;
+public class ListWithInnerClass {
+    private ListNode head, tail;
 
     public void append(int value) {
-        Node p = new Node(value);
+        ListNode p = new ListNode(value);
         if (head == null)
             head = p;
         else
@@ -16,7 +16,7 @@ public class List {
     }
 
     public void prepend(int val) {
-        Node p = new Node(val);
+        ListNode p = new ListNode(val);
         p.nextNode = head;
         head = p;
     }
@@ -28,7 +28,7 @@ public class List {
      * @return true if the value is found, false otherwise.
      */
     public boolean contains(int val) {
-        Node p = head;
+        ListNode p = head;
         boolean result = false;
         while (p != null) {
             if (p.value == val)
@@ -51,7 +51,7 @@ public class List {
     */
 
     public void delete(int val) {
-        Node p = head, prev = null;
+        ListNode p = head, prev = null;
         while (p != null && p.value != val) {
             prev = p;
             p = p.nextNode;
@@ -74,7 +74,7 @@ public class List {
      * @return index of first element with val or -1 if not found.
      */
     public int indexOf(int val) {
-        Node p = head;
+        ListNode p = head;
         int count = 0;
         int result = -1;
         while (p != null && result < 0) {
@@ -89,7 +89,7 @@ public class List {
 
     public long size() {
         long count =0;
-        Node p = head;
+        ListNode p = head;
         while (p!=null){
             count++;
             p = p.nextNode;
@@ -98,7 +98,7 @@ public class List {
     }
 
     public static void main(String[] args) {
-        List l = new List();
+        ListWithInnerClass l = new ListWithInnerClass();
         l.append(3);
         l.append(14);
         l.append(42);
@@ -111,6 +111,15 @@ public class List {
 
         while (true) {
             l.append(42);
+        }
+    }
+
+    class ListNode {
+        int value;
+        ListNode nextNode;
+
+        public ListNode(int value) {
+            this.value = value;
         }
     }
 }

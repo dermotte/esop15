@@ -8,7 +8,7 @@ import java.util.LinkedList;
  */
 public class ThreadConcurrencyExampleSynchronized implements Runnable {
     boolean up;           // increment or decrement
-    int count = 1000;   // each runs # times
+    int count = 10000;   // each runs # times
     static int sum;       // shared variable
     static Object monitor = new Object();
 

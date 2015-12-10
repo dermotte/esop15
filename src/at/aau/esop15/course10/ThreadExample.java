@@ -11,6 +11,12 @@ public class ThreadExample implements Runnable {
         this.text = text;
     }
 
+    @Override
+    public void run() {
+        while (count-- > 0) System.out.print(text);
+    }
+
+
     public static void main(String[] args) {
         new Thread(new ThreadExample("-")).start();
         new Thread(new ThreadExample("O")).start();
@@ -18,8 +24,5 @@ public class ThreadExample implements Runnable {
         new Thread(new ThreadExample("|")).run();
     }
 
-    @Override
-    public void run() {
-        while (count-- > 0) System.out.print(text);
-    }
+
 }
