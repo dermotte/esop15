@@ -6,7 +6,7 @@ package at.aau.esop15.course07;
 public class NameGenerator {
     private static char[] consonants = "bcdfghjklmnpqrstvwxz".toCharArray();
     private static char[] vowels = "aeiouy".toCharArray();
-    private static String[] titles = "Lord King Diva Queen Doc Incredible Tiny Unworthy Extreme Holy Stinking Dirty Smelly Tall Improbable Awesome Invisible".split(" ");
+    private static String[] titles = "Lord King Diva Queen Baron Duke Doc Incredible Tiny Unworthy Extreme Holy Stinking Dirty Smelly Tall Improbable Awesome Invisible Impossible Malicious Bold Uncommon".split(" ");
 
     public static void main(String[] args) {
         // feel free to experiment with patterns.
