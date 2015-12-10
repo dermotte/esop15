@@ -1,19 +1,17 @@
-package at.aau.esop15.lesson09;
+package at.aau.esop15.course09;
 
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
-import java.util.TreeSet;
 
 /**
  * @author Dr. Mathias Lux, mlux@itec.aau.at, 02.12.2015.
  */
-public class SetFunGenerics {
+public class SetFun {
     public static void main(String[] args) {
-        Set<String> setOne, setTwo;
+        HashSet setOne, setTwo;
 
-        setOne = new TreeSet<>();
-        setTwo = new HashSet<String>();
+        setOne = new HashSet();
+        setTwo = new HashSet();
 
         setOne.add("apples");
         setOne.add("peaches");
@@ -21,29 +19,27 @@ public class SetFunGenerics {
 
         setTwo.add("strawberries");
         setTwo.add("pears");
-        setTwo.add("mango");
+        setTwo.add("mangos");
 
         // union of sets:
-        Set<String> union = new TreeSet<>();
-        union.addAll(setOne);
+        Set union = (Set) setOne.clone(); // clone the set, so that setOne can be re-used later on ...
         union.addAll(setTwo);
         // print results:
         System.out.print("union = { ");
-        for (String element : union) {
-            System.out.print(element + " ");
+        for (Object elem : union) {
+            System.out.print((String) elem + " ");
         }
         System.out.print("}\n");
 
         // intersection
-        Set<String> intersection = new TreeSet<>(); // clone the set, so that setOne can be re-used later on ...
-        intersection.addAll(setOne);
+        Set intersection = (Set) setOne.clone(); // clone the set, so that setOne can be re-used later on ...
         setOne.removeAll(setTwo);
         intersection.removeAll(setOne);
         // print results:
         System.out.print("intersection = { ");
-        Iterator<String> it = intersection.iterator();
-        while (it.hasNext())
-            System.out.println(it.next() + " ");
+        for (Object elem : intersection) {
+            System.out.print((String) elem + " ");
+        }
         System.out.print("}\n");
     }
 }

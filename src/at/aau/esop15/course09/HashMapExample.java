@@ -1,4 +1,4 @@
-package at.aau.esop15.lesson09;
+package at.aau.esop15.course09;
 
 import java.util.HashMap;
 import java.util.LinkedList;
