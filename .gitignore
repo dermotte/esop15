@@ -35,3 +35,4 @@ docs/*
 
 # Maven noise
 target/*
+/nbproject/private/

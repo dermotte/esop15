@@ -1,6 +1,7 @@
 package at.aau.esop15.course11;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * @author Dr. Mathias Lux, mlux@itec.aau.at, 14.12.2015 16:08.
