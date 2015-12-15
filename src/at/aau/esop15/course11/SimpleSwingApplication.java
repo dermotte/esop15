@@ -1,5 +1,7 @@
 package at.aau.esop15.course11;
 
+import at.aau.esop15.course07.NameGenerator;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -42,6 +44,7 @@ public class SimpleSwingApplication extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Action fired.");
+                outputArea.append(NameGenerator.getRandomName(patterField.getText().trim()) + "\n");
             }
         });
 

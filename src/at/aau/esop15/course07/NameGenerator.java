@@ -20,7 +20,7 @@ public class NameGenerator {
         System.out.println(getRandomName("Cvccvc"));
     }
 
-    private static String getRandomName(String pattern) {
+    public static String getRandomName(String pattern) {
         char[] c = pattern.toCharArray();
         StringBuilder sb = new StringBuilder(pattern.length());
         for (int i = 0; i < c.length; i++) {
