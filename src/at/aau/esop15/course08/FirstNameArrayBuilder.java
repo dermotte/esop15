@@ -1,6 +1,7 @@
 package at.aau.esop15.course08;
 
 import java.io.*;
+import java.util.zip.GZIPInputStream;
 
 /**
  * Created by mlux on 26.11.2015.
@@ -15,7 +16,14 @@ public class FirstNameArrayBuilder {
 
     public void read() {
         try {
-            FileReader fr = new FileReader(namesFile);
+            InputStream in = null;
+            // make sure to handle compressed files too ...
+            if (namesFile.getName().endsWith(".gz")) {
+                in = new GZIPInputStream(new FileInputStream(namesFile));
+            } else {
+                in = new FileInputStream(namesFile);
+            }
+            Reader fr = new InputStreamReader(in);
             BufferedReader br = new BufferedReader(fr);
             String line = null;
             String[] tempNames = new String[120000];
@@ -51,7 +59,8 @@ public class FirstNameArrayBuilder {
     }
 
     public static void main(String[] args) {
-        FirstNameArrayBuilder f = new FirstNameArrayBuilder(new File("data\\yob2000.txt"));
+        FirstNameArrayBuilder f = new FirstNameArrayBuilder(new File("data\\fb-lastnames.txt.gz"));
+//        FirstNameArrayBuilder f = new FirstNameArrayBuilder(new File("data\\yob2000.txt"));
         f.read();
         String[] names = f.getNames();
         System.out.println(names[(int) (Math.random()*names.length)]);
