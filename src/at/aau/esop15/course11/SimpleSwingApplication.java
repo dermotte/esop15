@@ -22,15 +22,17 @@ public class SimpleSwingApplication extends JFrame {
         JLabel titleLabel = new JLabel("Name Generator");
         titleLabel.setFont(titleLabel.getFont().deriveFont(22f));
         JLabel patternLabel = new JLabel("Pattern:");
-        JTextField patterField = new JTextField("t Vccv");
+        JTextField patternField = new JTextField("t Vccv");
         JButton generateButton = new JButton("Generate");
+        generateButton.setToolTipText("Click here!");
         JTextArea outputArea = new JTextArea();
+        outputArea.setEditable(false);
 
         // organizing button, labels and text field:
         JPanel inputPanel = new JPanel(new BorderLayout(5,5));
         inputPanel.add(titleLabel, BorderLayout.NORTH);
         inputPanel.add(patternLabel, BorderLayout.WEST);
-        inputPanel.add(patterField, BorderLayout.CENTER);
+        inputPanel.add(patternField, BorderLayout.CENTER);
         inputPanel.add(generateButton, BorderLayout.EAST);
 
         // content panel
@@ -44,7 +46,7 @@ public class SimpleSwingApplication extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Action fired.");
-                outputArea.append(NameGenerator.getRandomName(patterField.getText().trim()) + "\n");
+                outputArea.append(NameGenerator.getRandomName(patternField.getText().trim()) + "\n");
             }
         });
 

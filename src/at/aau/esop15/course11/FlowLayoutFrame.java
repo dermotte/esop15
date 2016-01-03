@@ -11,12 +11,12 @@ public class FlowLayoutFrame extends JFrame {
         super("FlowLayout Demo");
         setSize(320, 240);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-        JPanel panel = new JPanel(new FlowLayout());
-        panel.add(new Button("Button 01"));
-        panel.add(new Button("Button 02"));
-        panel.add(new Button("Button 03"));
-        panel.add(new Button("Button 04"));
+        FlowLayout flowLayout = new FlowLayout(FlowLayout.LEFT);
+        JPanel panel = new JPanel(flowLayout);
+        panel.add(new JButton("Button 01"));
+        panel.add(new JButton("Button 02"));
+        panel.add(new JButton("Button 03"));
+        panel.add(new JButton("Button 04"));
 
         setContentPane(panel);
     }

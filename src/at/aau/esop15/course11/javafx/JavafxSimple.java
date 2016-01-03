@@ -6,6 +6,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 /**
@@ -17,6 +18,7 @@ public class JavafxSimple extends Application {
         Button button = new Button("Hello World");
         StackPane rootPane = new StackPane();
         rootPane.getChildren().add(button);
+        rootPane.getChildren().add(new Circle(50));
         Scene scene = new Scene(rootPane, 640, 480);
         primaryStage.setScene(scene);
         primaryStage.show();

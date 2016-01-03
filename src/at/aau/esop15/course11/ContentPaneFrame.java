@@ -13,11 +13,11 @@ public class ContentPaneFrame extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         Container contentPane = getContentPane();
-        contentPane.add(new Button("South"), BorderLayout.SOUTH);
-        contentPane.add(new Button("North"), BorderLayout.NORTH);
-        contentPane.add(new Button("Center"), BorderLayout.CENTER);
-        contentPane.add(new Button("East"), BorderLayout.EAST);
-        contentPane.add(new Button("West"), BorderLayout.WEST);
+        contentPane.add(new JButton("South"), BorderLayout.SOUTH);
+        contentPane.add(new JButton("North"), BorderLayout.NORTH);
+        contentPane.add(new JButton("Center"), BorderLayout.CENTER);
+        contentPane.add(new JButton("East"), BorderLayout.EAST);
+        contentPane.add(new JButton("West"), BorderLayout.WEST);
     }
 
     public static void main(String[] args) {
