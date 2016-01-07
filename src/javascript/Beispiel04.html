@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PasswordGenerator</title>
+
+    <script language="JavaScript">
+        function getNewPassword(length) {
+            var password = "";
+            for (i=0; i<length; i++) {
+                password += String.fromCharCode(Math.floor(Math.random()*93+33));
+            }
+            console.log(password);
+            return password;
+        }
+    </script>
+</head>
+<body>
+<a href="#" onClick="javascript:document.getElementById('passwordout').innerHTML = getNewPassword(8);">new password</a><br/>
+<p id="passwordout">..</p>
+</body>
+</html>

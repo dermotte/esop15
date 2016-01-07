@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generate a new password</title>
+
+    <script type="text/javascript" src="zxcvbn.js">
+    </script>
+
+    <script language="JavaScript">
+        function getNewPassword(length) {
+            var password = "";
+            var letters = new String("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-.:,;#+*?!\"§$%/&()=<>|@^~");
+            for (i = 0; i < length; i++) {
+                var myChar = Math.floor(Math.random() * letters.length);
+                password += letters.charAt(myChar);
+            }
+            console.log(password);
+            pwdmeta = zxcvbn(password);
+            console.log(pwdmeta);
+
+            var myMeta = "";
+            myMeta += "Crack time: <ul>";
+                myMeta += "<li> Fast hashing (1E10/s): " + pwdmeta.crack_times_display.offline_fast_hashing_1e10_per_second + "</li>";
+                myMeta += "<li> Slow hashing (1000/s): " + pwdmeta.crack_times_display.offline_slow_hashing_1e4_per_second+ "</li>";
+                myMeta += "<li> Online (10/s): " + pwdmeta.crack_times_display.online_no_throttling_10_per_second+ "</li>";
+                myMeta += "<li> Online (100/h): " + pwdmeta.crack_times_display.online_throttling_100_per_hour+ "</li>";
+            myMeta += "</ul>";
+            myMeta += "Attacks: <ul>";
+            for (var x = 0; x < pwdmeta.sequence.length; x++) {
+                myMeta += "<li>" + pwdmeta.sequence[x].pattern + ": " +  pwdmeta.sequence[x].token + "</li>";
+            }
+            myMeta += "</ul>";
+            document.getElementById('passwordmeta').innerHTML = myMeta;
+            return password;
+        }
+    </script>
+
+</head>
+<body>
+<input type="text" id="passwordlength" value="8"/><br>
+<a href="#"
+   onClick="javascript:document.getElementById('passwordout').innerHTML = getNewPassword(document.getElementById('passwordlength').value);">new
+    password</a>
+
+<p id="passwordout">..</p>
+
+<p id="passwordmeta">..</p>
+
+Password strength estimated using <a href="https://github.com/dropbox/zxcvbn">zxcvbn</a>.
+</body>
+</html>

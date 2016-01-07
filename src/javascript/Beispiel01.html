@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head lang="en">
+    <title>Beispiel 01</title>
+    <script language="JavaScript">
+        // function for determining the date and putting it into the page.
+        function logDate() {
+            var node = document.getElementById("currentDate");
+            node.innerHTML = " " + new Date().toDateString();
+            console.log(new Date().toDateString())
+        }
+    </script>
+</head>
+<body onload="logDate()">
+<h1>Das ist Beispiel 01</h1>
+<p id="currentDate">...</p>
+</body>
+</html>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Canvas</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="400" height="400" style="border:1px solid #000000;">
+    </canvas>
+<script language="JavaScript">
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    var px = 0;
+    function drawLine() {
+        ctx.moveTo(px, 0);
+        ctx.lineTo(400-px, 400);
+        ctx.stroke();
+        px +=5;
+        if (px < 400) setTimeout(drawLine, 50);
+    }
+    drawLine();
+</script>
+</body>
+</html>
