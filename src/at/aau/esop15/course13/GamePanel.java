@@ -25,6 +25,8 @@ public class GamePanel extends JPanel {
     private boolean gameOver = false;
     private int offsetY;
     private int offsetX;
+    private boolean won = false;
+    private final Font gameFont;
 
     public GamePanel() {
         super();
@@ -49,8 +51,8 @@ public class GamePanel extends JPanel {
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseReleased(MouseEvent e) {
-                int col = (int) Math.floor((e.getX()-offsetX) / 32);
-                int row = (int) Math.floor((e.getY()-offsetY) / 32);
+                int col = (int) Math.floor((e.getX() - offsetX) / 32);
+                int row = (int) Math.floor((e.getY() - offsetY) / 32);
 
                 uncover(row, col, e.getButton() == MouseEvent.BUTTON3);
             }
@@ -92,11 +94,15 @@ public class GamePanel extends JPanel {
             }
         }
 
+        // create a Font:
+        gameFont = new Font("Hobo Std", Font.PLAIN, 64);
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
+        g2.setFont(gameFont);
+        g2.setColor(Color.RED);
         // determine offset:
         offsetY = (int) ((this.getSize().getHeight() - rows * 32) / 2);
         offsetX = (int) ((this.getSize().getWidth() - cols * 32) / 2);
@@ -112,19 +118,28 @@ public class GamePanel extends JPanel {
                         g2.drawImage(sprites.get('h'), offsetX + col * 32, offsetY + row * 32, null);
                 } else {
                     g2.drawImage(sprites.get(minefield[col][row]), offsetX + col * 32, offsetY + row * 32, null);
-                    g2.drawString("Game Over!", 10, 10);
+                    String str = "Game Over!";
+                    int w = (int) getFontMetrics(gameFont).getStringBounds(str, null).getWidth();
+                    g2.drawString(str, ((int) (this.getSize().getWidth() / 2 - w / 2)), ((int) (this.getSize().getHeight() - 200)));
                 }
             }
         }
-
+        if (won) {
+            g2.setColor(Color.GREEN);
+            String str = "Game Won!";
+            int w = (int) getFontMetrics(gameFont).getStringBounds(str, null).getWidth();
+            g2.drawString(str, ((int) (this.getSize().getWidth() / 2 - w / 2)), ((int) (this.getSize().getHeight() - 200)));
+        }
     }
 
     public void uncover(int row, int col, boolean flagIt) {
         // System.out.printf("User clicked on row %d and col %d, flagging %b\n", row, col, flagIt);
         // now implement the game mechanics here:
         if (flagIt) {
-            if (visible[col][row] != 'f') visible[col][row] = 'f';
-            else visible[col][row] = 'h';
+            if (visible[col][row] != 'f') {
+                visible[col][row] = 'f';
+                checkIfWon();
+            } else visible[col][row] = 'h';
         } else if (visible[col][row] != 'f') {
             // check for bomb
             if (minefield[col][row] == 'b') {
@@ -150,5 +165,18 @@ public class GamePanel extends JPanel {
         }
 
         repaint();
+    }
+
+    private void checkIfWon() {
+        won = true;
+        for (int col = 0; col < visible.length; col++) {
+            for (int row = 0; row < visible[col].length; row++) {
+                if (minefield[col][row] == 'b') {
+                    if (visible[col][row]!='f') {
+                        won = false;
+                    }
+                }
+            }
+        }
     }
 }
