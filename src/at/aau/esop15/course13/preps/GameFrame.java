@@ -1,4 +1,4 @@
-package at.aau.esop15.course13;
+package at.aau.esop15.course13.preps;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
+ * This is the version from the lecture
  * @author Dr. Mathias Lux, mlux@itec.aau.at, 14.01.2016 14:12.
  */
 public class MinesweeperFrame extends JFrame {
