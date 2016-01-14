@@ -25,6 +25,7 @@ public class GameFrame extends JFrame {
         GameFrame frame = new GameFrame();
         GamePanel panel = new GamePanel();
         frame.add(panel, BorderLayout.CENTER);
+        frame.pack();
         frame.setVisible(true);
     }
 }

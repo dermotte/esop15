@@ -17,8 +17,8 @@ public class GamePanel extends JPanel {
     // sprites for easy access:
     HashMap<Character, BufferedImage> sprites = new HashMap<>(12);
     // actual layout:
-    int rows = 15;
-    int cols = 20;
+    int rows = 30;
+    int cols = 40;
     int numberOfMines = 0;
     char[][] minefield = new char[cols][rows]; // where are the mines
     char[][] visible = new char[cols][rows]; // what is already visible to the user?
@@ -96,6 +96,10 @@ public class GamePanel extends JPanel {
 
         // create a Font:
         gameFont = new Font("Hobo Std", Font.PLAIN, 64);
+
+        // and this is for frame.pack().
+        this.setMinimumSize(new Dimension(cols*32, rows*32));
+        this.setPreferredSize(new Dimension(cols*32, rows*32));
     }
 
     @Override
