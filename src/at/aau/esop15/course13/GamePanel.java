@@ -17,11 +17,11 @@ public class GamePanel extends JPanel {
     // sprites for easy access:
     HashMap<Character, BufferedImage> sprites = new HashMap<>(12);
     // actual layout:
-    int rows = 30;
-    int cols = 40;
+    int rows = 15;
+    int cols = 15;
     int numberOfMines = 0;
     char[][] minefield = new char[cols][rows]; // where are the mines
-    char[][] visible = new char[cols][rows]; // what is already visible to the user?
+    char[][] visible   = new char[cols][rows]; // what is already visible to the user?
     private boolean gameOver = false;
     private int offsetY;
     private int offsetX;
